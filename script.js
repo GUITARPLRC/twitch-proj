@@ -10,7 +10,7 @@ link3.click();
 function  (){
 	
 }
-function  (){
+function getTwitchers (){
 	
 }
 function  (){
