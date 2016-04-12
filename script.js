@@ -29,8 +29,8 @@ function getTwitchers (){
 				pic.setAttribute("href", data.follows[i].channel.logo); // set streamer logo
 				pic.setAttribute("class", "picture");
 			var header = document.createElement("h3");
-				header.textContent = data.follows[i].channel.name; // set streamer name
-			var description = document.createTextNode(data.follows[i].channel.game); // set streamer description
+				header.textContent = data.follows[i].channel.display_name; // set streamer name
+			var description = document.createTextNode(data.follows[i].channel.status); // set streamer status (if "live")
 			
 			
 			
