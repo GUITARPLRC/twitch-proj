@@ -12,27 +12,36 @@ link3.click();
 
 function getTwitchers (){
 	
-	$.getJSON("https://api.twitch.tv/kraken/streams?channel=freecodecamp,storbeck,terakilobyte,habathcx,RobotCaleb,thomasballinger,noobs2ninjas,beohoff,brunofin,comster404", function (data){
+	$.getJSON("https://api.twitch.tv/kraken/users/guitarplrc/follows/channels", function (data){
 		
 		var list = document.getElementById("list");
 		
 		console.log(data);
 		
-		var anchor = document.createElement("a");
-		anchor.setAttribute("href", data.streamer.self);
-		var item = document.createElement("li");
-		var div = document.createElement("div");
-		var pic = document.createElement("div");
-		pic.setAttribute("class", "picture");
-		var header = document.createElement("h3");
-		var description = document.createTextNode(data.streamer);
+		for (var i =0; i < data.follows.length; i++) {
 		
-		div.appendChild(pic); // div > pic
-		div.appendChild(header); // div > pic > header
-		div.appendChild(description); // div > pic > header > description
-		item.appendChild(div); // li(item) > div
-		anchor.appendChild(item); // a > li(item) > div
-		list.appendChild(anchor); // list > a > li(item) > div > pic > header > description
+			var anchor = document.createElement("a");
+				anchor.setAttribute("href", data.follows[i].channel.url); // set streamer link to
+			var item = document.createElement("li");
+				item.setAttribute("class", "streamer");
+			var div = document.createElement("div");
+			var pic = document.createElement("div");
+				pic.setAttribute("href", data.follows[i].channel.logo); // set streamer logo
+				pic.setAttribute("class", "picture");
+			var header = document.createElement("h3");
+				header.textContent = data.follows[i].channel.name; // set streamer name
+			var description = document.createTextNode(data.follows[i].channel.game); // set streamer description
+			
+			
+			
+			div.appendChild(pic); // div > pic
+			div.appendChild(header); // div > pic > header
+			div.appendChild(description); // div > pic > header > description
+			item.appendChild(div); // li(item) > div
+			anchor.appendChild(item); // a > li(item) > div
+			list.appendChild(anchor); // list > a > li(item) > div > pic > header > description
+		
+		}
 		
 	});
 	
