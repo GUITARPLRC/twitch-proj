@@ -26,8 +26,8 @@ function getTwitchers (user){
 			var item = document.createElement("li");
 				item.setAttribute("class", "streamer");
 			var div = document.createElement("div");
-			var pic = document.createElement("div");
-				pic.setAttribute("href", data.follows[i].channel.logo); // set streamer logo
+			var pic = document.createElement("img");
+				pic.setAttribute("src", data.follows[i].channel.logo); // set streamer logo
 				pic.setAttribute("class", "picture");
 			var header = document.createElement("h3");
 				header.textContent = data.follows[i].channel.display_name; // set streamer name
@@ -46,6 +46,13 @@ function getTwitchers (user){
 		
 	});
 	
+	/*
+	$.getJSON("https://api.twitch.tv//kraken/streams?channel=riotgames,beyondthesummit", function (user) {
+		
+		console.log(user);
+		
+	});
+	*/
 }
 
 function getUser() {
