@@ -1,8 +1,9 @@
 var link1 = document.getElementById("link1");
 var link2 = document.getElementById("link2");
 var link3 = document.getElementById("link3");
+var submit = document.getElementById("submit");
 
-var streamers = ["freecodecamp", "storbeck", "terakilobyte", "habathcx","RobotCaleb","thomasballinger","noobs2ninjas","beohoff","brunofin","comster404"];
+submit.addEventListener("click", getUser, false);
 
 /*
 link1.click();
@@ -10,9 +11,9 @@ link2.click();
 link3.click();
 */
 
-function getTwitchers (){
+function getTwitchers (user){
 	
-	$.getJSON("https://api.twitch.tv/kraken/users/guitarplrc/follows/channels", function (data){
+	$.getJSON("https://api.twitch.tv/kraken/users/"+ user +"/follows/channels", function (data){
 		
 		var list = document.getElementById("list");
 		
@@ -47,4 +48,14 @@ function getTwitchers (){
 	
 }
 
-getTwitchers();
+function getUser() {
+	
+	while (list.firstChild) {
+		list.removeChild(list.firstChild);
+	}
+	
+	var user = document.getElementById("user").value;
+	
+	getTwitchers(user);
+	
+}
