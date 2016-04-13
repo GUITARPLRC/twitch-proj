@@ -1,14 +1,13 @@
-var link1 = document.getElementById("link1");
-var link2 = document.getElementById("link2");
-var link3 = document.getElementById("link3");
+var all = document.getElementById("all");
+var online = document.getElementById("online");
+var offline = document.getElementById("offline");
 var submit = document.getElementById("submit");
 
 submit.addEventListener("click", getUser, false);
-
 /*
-link1.click();
-link2.click();
-link3.click();
+all.addEventListener("", ,false);
+online.addEventListener("", ,false);
+offline.addEventListener("", ,false);
 */
 
 function getTwitchers (user){
@@ -16,8 +15,6 @@ function getTwitchers (user){
 	$.getJSON("https://api.twitch.tv/kraken/users/"+ user +"/follows/channels", function (data){
 		
 		var list = document.getElementById("list");
-		
-		console.log(data);
 		
 		for (var i =0; i < data.follows.length; i++) {
 		
@@ -33,7 +30,21 @@ function getTwitchers (user){
 				header.textContent = data.follows[i].channel.display_name; // set streamer name
 			var description = document.createTextNode(data.follows[i].channel.status); // set streamer status (if "live")
 			
-			
+			/*
+			$.getJSON("https://api.twitch.tv//kraken/streams?channel=" + data.follows[i].channel.name, function (channel) {
+				
+				if (channel.stream === "null") {
+					
+					description.textContent = "";
+					
+				} else {
+					
+					description.textContent = data.follows[i].channel.status;
+					
+				}
+				
+			});
+			*/
 			
 			div.appendChild(pic); // div > pic
 			div.appendChild(header); // div > pic > header
@@ -46,13 +57,6 @@ function getTwitchers (user){
 		
 	});
 	
-	/*
-	$.getJSON("https://api.twitch.tv//kraken/streams?channel=riotgames,beyondthesummit", function (user) {
-		
-		console.log(user);
-		
-	});
-	*/
 }
 
 function getUser() {
