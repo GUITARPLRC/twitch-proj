@@ -1,2 +1,2 @@
 Twitch api custom app
-Input user name and check your if friends are currently streaming
+Input your user name and check if all your friends are currently streaming
