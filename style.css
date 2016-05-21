@@ -9,16 +9,31 @@ body {
 	margin-top:20px;
 }
 
+input[type="text"] {
+	font-size:18px;
+	padding:5px 10px;
+}
+input[type="submit"] {
+	padding:8px 15px;
+	outline:none;
+	border-radius:10px;
+	border:1px solid #fff;
+	box-shadow:0 0 5px #000;
+	margin-left:10px;
+}
+
 #container {
-	width:600px;
-	height:800px;
+	width:60%;
 	margin:50px auto 0 auto;
 }
 
 #top{
+	color:#fff;
 	width:100%;
-	height:100px;
+	padding:2% 0;
 	background-color:#16a085;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
 }
 #links {
 	width:100%;
@@ -46,11 +61,13 @@ body {
 	width:100%;
 	padding:10px 0;
 	background-color:#bdc3c7;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
 }
 #list a {
 	text-decoration:none;
 }
-#list a li {
+#list a li{
 	list-style-type:none;
 	margin-bottom:10px;
 }

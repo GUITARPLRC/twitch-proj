@@ -30,27 +30,11 @@ function getTwitchers (user){
 				header.textContent = data.follows[i].channel.display_name; // set streamer name
 			var description = document.createTextNode(data.follows[i].channel.status); // set streamer status (if "live")
 			
-			/*
-			$.getJSON("https://api.twitch.tv//kraken/streams?channel=" + data.follows[i].channel.name, function (channel) {
-				
-				if (channel.stream === "null") {
-					
-					description.textContent = "";
-					
-				} else {
-					
-					description.textContent = data.follows[i].channel.status;
-					
-				}
-				
-			});
-			*/
-			
 			div.appendChild(pic); // div > pic
 			div.appendChild(header); // div > pic > header
 			div.appendChild(description); // div > pic > header > description
-			item.appendChild(div); // li(item) > div
-			anchor.appendChild(item); // a > li(item) > div
+			item.appendChild(div); // li(item) > div...
+			anchor.appendChild(item); // a > li(item) > div...
 			list.appendChild(anchor); // list > a > li(item) > div > pic > header > description
 		
 		}
